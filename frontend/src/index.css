@@ -1,0 +1,31 @@
+/* Tailwind CSS entry point – these directives are replaced at build
+   time with the generated utility classes. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fade-in-card {
+    animation: fade-in-card 0.45s ease both;
+  }
+
+  @keyframes fade-in-card {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
