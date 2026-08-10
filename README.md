@@ -1,6 +1,6 @@
 # 🍔 Food Genie
 
-An AI-powered food ordering platform (think Swiggy / Zomato) built on the **MERN** stack.
+Smart food ordering platform powered by artificial intelligence, built on the **MERN** stack.
 
 > **Status:** Project scaffold only. No authentication, database models, or business logic yet — this is the initial full-stack skeleton to build on step by step.
 
@@ -13,7 +13,7 @@ An AI-powered food ordering platform (think Swiggy / Zomato) built on the **MERN
 | Database | MongoDB (via Mongoose)                          |
 | Auth     | JSON Web Tokens + bcryptjs _(planned)_          |
 | Payments | Stripe _(planned)_                              |
-| AI       | OpenAI _(planned)_                              |
+| AI       | Gemini _(planned)_                              |
 
 ## 📁 Project Structure
 
@@ -105,3 +105,4 @@ real `.env` files — they're already git-ignored.
 ## 📄 License
 
 MIT
+
