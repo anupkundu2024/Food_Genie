@@ -1,13 +1,13 @@
 // server.js
 // Entry point for the Food Genie backend API.
 
-// 1. Load environment variables from .env as early as possible.
 require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
 
 const connectDB = require("./config/db");
+
 const healthRoutes = require("./routes/health.routes");
 const authRoutes = require("./routes/authRoutes");
 const restaurantRoutes = require("./routes/restaurantRoutes");
@@ -15,44 +15,49 @@ const menuRoutes = require("./routes/menuRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const aiRoutes = require("./routes/aiRoutes");
+
 const { handleStripeWebhook } = require("./controllers/paymentController");
 
-// 3. Create the Express app.
+// Create Express app
 const app = express();
 
-// 4. Global middleware.
-app.use(cors()); // Allow cross-origin requests from the React frontend.
+// CORS
+app.use(cors());
 
-// Stripe needs the raw body to verify webhook signatures, so this route is
-// mounted before the JSON parser.
+// Stripe webhook must come before express.json()
 app.post(
   "/api/payments/webhook",
   express.raw({ type: "application/json" }),
-  handleStripeWebhook
+  handleStripeWebhook,
 );
 
-app.use(express.json()); // Parse incoming JSON request bodies.
+// JSON parser
+app.use(express.json());
 
-// 5. Routes.
-app.use("/api/health", healthRoutes); // Health check
-app.use("/api/auth", authRoutes); // Authentication (register, login, me)
-app.use("/api/restaurants", restaurantRoutes); // Restaurant CRUD
-app.use("/api/menu", menuRoutes); // Menu item CRUD
-app.use("/api/orders", orderRoutes); // Order lifecycle
-app.use("/api/payments", paymentRoutes); // Stripe payment intents
-app.use("/api/ai", aiRoutes); // AI recommendations + chat assistant
+// Routes
+app.use("/api/health", healthRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/restaurants", restaurantRoutes);
+app.use("/api/menu", menuRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use("/api/ai", aiRoutes);
 
-// 6. Connect to MongoDB, then start the server.
+// Render provides PORT automatically
 const PORT = process.env.PORT || 5000;
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
+
+// Connect MongoDB and start server
+const startServer = async () => {
+  try {
+    await connectDB();
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`🚀 Server running on port ${PORT}`);
     });
-  })
-  .catch(() => {
-    console.error(
-      "❌ Server startup aborted because MongoDB connection failed.",
-    );
+  } catch (error) {
+    console.error("❌ Server startup failed:", error);
     process.exit(1);
-  });
+  }
+};
+
+startServer();
