@@ -43,10 +43,26 @@ export default function Footer() {
             Quick Links
           </h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/" className="transition hover:text-orange-500">Home</Link></li>
-            <li><a href="#" className="transition hover:text-orange-500">About Us</a></li>
-            <li><a href="#" className="transition hover:text-orange-500">Contact</a></li>
-            <li><a href="#" className="transition hover:text-orange-500">FAQs</a></li>
+            <li>
+              <Link to="/" className="transition hover:text-orange-500">
+                Home
+              </Link>
+            </li>
+            <li>
+              <a href="#" className="transition hover:text-orange-500">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="transition hover:text-orange-500">
+                Contact
+              </a>
+            </li>
+            <li>
+              <a href="#" className="transition hover:text-orange-500">
+                FAQs
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -55,9 +71,21 @@ export default function Footer() {
             For Restaurants
           </h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="transition hover:text-orange-500">Partner with us</a></li>
-            <li><a href="#" className="transition hover:text-orange-500">Restaurant login</a></li>
-            <li><a href="#" className="transition hover:text-orange-500">Business blog</a></li>
+            <li>
+              <a href="#" className="transition hover:text-orange-500">
+                Partner with us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="transition hover:text-orange-500">
+                Restaurant login
+              </a>
+            </li>
+            <li>
+              <a href="#" className="transition hover:text-orange-500">
+                Business blog
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -69,13 +97,31 @@ export default function Footer() {
             Stay updated with offers and new restaurants.
           </p>
           <div className="flex gap-3">
-            <a href="#" aria-label="Instagram" className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition hover:bg-orange-600 hover:text-white">
+            <a
+              href="https://linktr.ee/anup_kundu"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition hover:bg-orange-600 hover:text-white"
+            >
               <InstagramIcon className="h-5 w-5" />
             </a>
-            <a href="#" aria-label="Twitter" className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition hover:bg-orange-600 hover:text-white">
+            <a
+              href="https://anupportfolio2025.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Twitter"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition hover:bg-orange-600 hover:text-white"
+            >
               <TwitterIcon className="h-5 w-5" />
             </a>
-            <a href="#" aria-label="Facebook" className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition hover:bg-orange-600 hover:text-white">
+            <a
+              href="https://linktr.ee/anup_kundu"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition hover:bg-orange-600 hover:text-white"
+            >
               <FacebookIcon className="h-5 w-5" />
             </a>
           </div>
